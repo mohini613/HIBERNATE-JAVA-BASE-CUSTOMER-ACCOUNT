@@ -1,9 +1,10 @@
 package com.CustomerAcc;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -11,69 +12,66 @@ import javax.persistence.Table;
 @Table(name = "customer_details")
 public class Customer {
 
-	@Id
-	private int C_Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     private int C_Id;
 
-	private String Customer_Name;
+    private String Customer_Name;
 
-	private int Aadhar_Card;
+    private int Aadhar_Card;
 
-	private String PanCard;
+    private String PanCard;
 
-	private int MobileNo;
-	
-	 @OneToOne
-	    @JoinColumn(name = "account_id") // Foreign key to Account
-	    private Account ac;
-
-
-  
+    private int MobileNo;
     
-	public int getC_Id() {
-		return C_Id;
-	}
+    @OneToOne
+    @JoinColumn(name = "account_id") 
+    private Account ac;
 
-	public void setC_Id(int c_Id) {
-		C_Id = c_Id;
-	}
+    public int getC_Id() {
+        return C_Id;
+    }
 
-	public String getCustomer_Name() {
-		return Customer_Name;
-	}
+    public void setC_Id(int c_Id) {
+        C_Id = c_Id;
+    }
 
-	public void setCustomer_Name(String customer_Name) {
-		Customer_Name = customer_Name;
-	}
+    public String getCustomer_Name() {
+        return Customer_Name;
+    }
 
-	public int getAadhar_Card() {
-		return Aadhar_Card;
-	}
+    public void setCustomer_Name(String customer_Name) {
+        Customer_Name = customer_Name;
+    }
 
-	public void setAadhar_Card(int aadhar_Card) {
-		Aadhar_Card = aadhar_Card;
-	}
+    public int getAadhar_Card() {
+        return Aadhar_Card;
+    }
 
-	public String getPanCard() {
-		return PanCard;
-	}
+    public void setAadhar_Card(int aadhar_Card) {
+        Aadhar_Card = aadhar_Card;
+    }
 
-	public void setPanCard(String panCard) {
-		PanCard = panCard;
-	}
+    public String getPanCard() {
+        return PanCard;
+    }
 
-	public int getMobileNo() {
-		return MobileNo;
-	}
+    public void setPanCard(String panCard) {
+        PanCard = panCard;
+    }
 
-	public void setMobileNo(int mobileNo) {
-		MobileNo = mobileNo;
-	}
+    public int getMobileNo() {
+        return MobileNo;
+    }
 
-	public Account getAccount() {
+    public void setMobileNo(int mobileNo) {
+        MobileNo = mobileNo;
+    }
+
+    public Account getAccount() {
         return ac;
     }
 
     public void setAccount(Account ac) {
         this.ac = ac;
-}
+    }
 }
